@@ -13,5 +13,18 @@ describe 'Doctors Show Page' do
     visit doctor_path(@d1)
   end
 
+  it 'should display the doctors name, specialty and university' do
+    expect(page).to have_content(@d1.name)
+    expect(page).to have_content(@d1.specialty)
+    expect(page).to have_content(@d1.university)
+  end
+
+  it 'should display the hospital name they work for' do
+    expect(page).to have_content(@d1.associated_hospital)
+  end
+  
+  it 'should display a count of all patients this doctor has' do
+    expect(page).to have_content(@d1.patient_count)
+  end
 
 end
